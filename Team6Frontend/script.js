@@ -4,7 +4,7 @@ addEventListener("DOMContentLoaded", async function(){
 
     let html = ""
     for (let course of courses){
-        html +=`<li>${course.title} - ${course.artist}</li>`
+        html +=`<li>${course.courseTitle} - ${course.courseDept}</li>`
     }
 
     document.querySelector("#list_of_courses").innerHTML = html
