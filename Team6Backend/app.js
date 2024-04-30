@@ -21,6 +21,18 @@ router.get("/courses", async(req, res) =>{
     catch (err) {
         console.log(err)
     }
+})
+
+    //grab a single course in the database
+router.get("/courses/:id", async (req, res) => {
+    try{
+        const course = await Course.findById(req.params.id)
+        res.json(course)
+    }
+    catch (err) {
+        res.status(400).send(err)
+    }
+})
 
 router.post("/courses", async(req, res) => {
     try{
@@ -33,7 +45,7 @@ router.post("/courses", async(req, res) => {
         res.status(400).send(err)
     }
 })
-})
+
 
 //all requests that usually use an api start with /api...  so the url would be localhost:3000
 app.use("/api", router)
